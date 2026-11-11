@@ -1,16 +1,17 @@
 import { useState } from 'react'
 import { api } from '../api.js'
+import { perms } from '../utils.js'
 import PetForm from './pet/PetForm.jsx'
 import VisitsTab from './pet/VisitsTab.jsx'
 import VaccinesTab from './pet/VaccinesTab.jsx'
 import MedsTab from './pet/MedsTab.jsx'
-import { perms } from '../utils.js'
 
 const TABS = [['visits', 'Visitas'], ['vaccines', 'Vacunas'], ['meds', 'Medicación']]
 
-export default function PetPage({ pet, houseName, role, onBack, onPetChange }){
+export default function PetPage({ pet, houseName, role, onBack, onPetChange }) {
   const [tab, setTab] = useState('visits')
   const [editing, setEditing] = useState(false)
+  const { write: canWrite } = perms(role)
 
   const save = async (patch) => {
     onPetChange(await api.updatePet(pet.id, patch))

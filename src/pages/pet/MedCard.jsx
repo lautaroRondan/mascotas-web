@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { api } from '../../api.js'
-import { fmtDate, num } from '../../utils.js'
 import { DAYS, PRESENTATIONS, CONC_PER } from './ScheduleFields.jsx'
 import ScheduleChangeForm from './ScheduleChangeForm.jsx'
 import { fmtDate, num, perms } from '../../utils.js'
@@ -15,7 +14,7 @@ function freqText(s) {
 }
 
 export default function MedCard({ med, onChange, role }) {
-  const { write: canWrite, owner: isOwner } = perms(role)
+  const { write: canWrite, owner: isOwner } = perms(role)  
   const [slots, setSlots] = useState([])
   const [error, setError] = useState('')
   const [editing, setEditing] = useState(false)

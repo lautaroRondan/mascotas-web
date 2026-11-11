@@ -3,7 +3,7 @@ import { api } from '../api.js'
 import { ROLE_LABEL, inviteLink } from '../utils.js'
 
 const ROLES = ['owner', 'member', 'readonly']
-const INVITE_ROLES = ['member', 'readonly']
+const INVITE_ROLES = ['owner', 'member', 'readonly']
 
 export default function MembersPage({ house, onBack, onLeft }) {
   const isOwner = house.role === 'owner'
