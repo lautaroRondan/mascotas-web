@@ -41,7 +41,7 @@ export default function MedsTab({ petId, role }) {
       {shown.length === 0 && !adding && (
         <p className="muted">{view === 'active' ? 'No hay medicación activa.' : 'Todavía no hay tratamientos finalizados.'}</p>
       )}
-      {shown.map((m) => <MedCard key={m.id} med={m} onChange={replace} />)}
+      {shown.map((m) => <MedCard key={m.id} med={m} role={role} onChange={replace} />)}
     </>
   )
 }
